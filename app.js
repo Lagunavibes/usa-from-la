@@ -16,13 +16,31 @@ const form = document.getElementById('reqForm');
 if (form) form.addEventListener('submit', (e)=>{
   e.preventDefault();
   const d = Object.fromEntries(new FormData(e.target).entries());
-  const lines = [
+  const lines = lang==='en' ? [
+    'USA from LA — size request',
+    'Name: '+d.name,
+    'City: '+d.city,
+    'Brand: '+d.brand,
+    'Item: '+d.item,
+    'Size: '+d.size,
+    'Color: '+(d.color||'-'),
+    'Max: '+d.max+' lei',
+    'Nordstrom Rack link: '+(d.rack||'-'),
+    'Notes: '+(d.notes||'-')
+  ] : [
     'USA from LA — cerere marime',
-    'Nume: '+d.name,'Oras: '+d.city,'Brand: '+d.brand,'Piesa: '+d.item,
-    'Marime: '+d.size,'Culoare: '+(d.color||'-'),'Maxim: '+d.max+' lei','Detalii: '+(d.notes||'-')
+    'Nume: '+d.name,
+    'Oras: '+d.city,
+    'Brand: '+d.brand,
+    'Piesa: '+d.item,
+    'Marime: '+d.size,
+    'Culoare: '+(d.color||'-'),
+    'Maxim: '+d.max+' lei',
+    'Link Nordstrom Rack: '+(d.rack||'-'),
+    'Detalii: '+(d.notes||'-')
   ];
   if(!number){
-    alert('Pune numarul de WhatsApp in config.js inainte.');
+    alert(lang==='en' ? 'Add the WhatsApp number in config.js first.' : 'Pune numarul de WhatsApp in config.js inainte.');
     return;
   }
   window.location.href = 'https://wa.me/'+number+'?text='+encodeURIComponent(lines.join('\n'));
