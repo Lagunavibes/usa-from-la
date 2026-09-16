@@ -53,7 +53,7 @@
   <div class="wrap">
     <h2>Cum merge, fără coș de cumpărături.</h2>
     <div class="steps">
-      <article><span>1</span><h3>Cerere</h3><p>Completezi formularul: brand, model, mărime, culoare, maxim lei.</p></article>
+      <article><span>1</span><h3>Cerere</h3><p>Completezi formularul: brand, model, mărime, culoare, maxim lei. Poți lipi un link de pe Nordstrom Rack.</p></article>
       <article><span>2</span><h3>Vânătoare în CA</h3><p>Căutăm la Ross și Nordstrom Rack. Doar piese noi cu etichete.</p></article>
       <article><span>3</span><h3>Confirmare</h3><p>Primești foto. Dacă e ok, plătești. Dacă nu găsim la prețul tău, nu plătești nimic.</p></article>
       <article><span>4</span><h3>Livrare RO</h3><p>Colet comercial către Petroșani, apoi Easybox / curier în toată țara.</p></article>
@@ -99,9 +99,9 @@
   <h2>Cere o piesă</h2>
   <p>Mesajul se deschide în WhatsApp. Nu luăm cardul pe site.</p>
   <form id="reqForm" class="form">
-    <label><span>Nume</span><input name="name" required /></label>
-    <label><span>Oraș</span><input name="city" required /></label>
-    <label><span>Brand</span>
+    <label><span data-ro="Nume" data-en="Name">Nume</span><input name="name" required /></label>
+    <label><span data-ro="Oraș" data-en="City">Oraș</span><input name="city" required /></label>
+    <label><span data-ro="Brand" data-en="Brand">Brand</span>
       <select name="brand" required>
         <option value="">—</option>
         <option>Ralph Lauren</option><option>Tommy Hilfiger</option><option>Levi’s</option>
@@ -109,18 +109,23 @@
         <option>Nike / Jordan</option><option>Adidas</option>
       </select>
     </label>
-    <label><span>Ce vrei</span>
+    <label><span data-ro="Ce vrei" data-en="Item">Ce vrei</span>
       <select name="item" required>
         <option value="">—</option>
         <option>Geacă / puffer</option><option>Hanorac / fleece</option>
         <option>Polo</option><option>Blugi</option><option>Altceva</option>
       </select>
     </label>
-    <label><span>Mărime (US sau EU)</span><input name="size" required /></label>
-    <label><span>Culoare</span><input name="color" /></label>
-    <label><span>Preț maxim (lei)</span><input name="max" type="number" min="50" step="10" required /></label>
-    <label class="full"><span>Detalii</span><textarea name="notes" rows="3"></textarea></label>
-    <button class="btn full-btn" type="submit">Deschide WhatsApp</button>
+    <label><span data-ro="Mărime (US sau EU)" data-en="Size (US or EU)">Mărime (US sau EU)</span><input name="size" required /></label>
+    <label><span data-ro="Culoare" data-en="Color">Culoare</span><input name="color" /></label>
+    <label><span data-ro="Preț maxim (lei)" data-en="Max price (lei)">Preț maxim (lei)</span><input name="max" type="number" min="50" step="10" required /></label>
+    <label class="full">
+      <span data-ro="Link Nordstrom Rack (opțional)" data-en="Nordstrom Rack link (optional)">Link Nordstrom Rack (opțional)</span>
+      <input name="rack" type="url" inputmode="url" placeholder="https://www.nordstromrack.com/..." />
+    </label>
+    <p class="fine full" data-ro="Caută modelul pe nordstromrack.com și lipește linkul. Nu comanda de acolo către România — cumpărăm noi în California, doar dacă biletul trece taxa." data-en="Find the style on nordstromrack.com and paste the link. Do not check out to Romania — we buy it in California only if the ticket clears duty and VAT.">Caută modelul pe nordstromrack.com și lipește linkul. Nu comanda de acolo către România — cumpărăm noi în California, doar dacă biletul trece taxa.</p>
+    <label class="full"><span data-ro="Detalii" data-en="Notes">Detalii</span><textarea name="notes" rows="3"></textarea></label>
+    <button class="btn full-btn" type="submit" data-ro="Deschide WhatsApp" data-en="Open WhatsApp">Deschide WhatsApp</button>
   </form>
   <p class="fine" id="waHint">WhatsApp: pune numărul real în config.js</p>
 </section>
