@@ -16,6 +16,7 @@ const form = document.getElementById('reqForm');
 if (form) form.addEventListener('submit', (e)=>{
   e.preventDefault();
   const d = Object.fromEntries(new FormData(e.target).entries());
+  const link = d.link || d.rack || '-';
   const lines = lang==='en' ? [
     'USA from LA — size request',
     'Name: '+d.name,
@@ -25,7 +26,7 @@ if (form) form.addEventListener('submit', (e)=>{
     'Size: '+d.size,
     'Color: '+(d.color||'-'),
     'Max: '+d.max+' lei',
-    'Nordstrom Rack link: '+(d.rack||'-'),
+    'Store link: '+link,
     'Notes: '+(d.notes||'-')
   ] : [
     'USA from LA — cerere marime',
@@ -36,7 +37,7 @@ if (form) form.addEventListener('submit', (e)=>{
     'Marime: '+d.size,
     'Culoare: '+(d.color||'-'),
     'Maxim: '+d.max+' lei',
-    'Link Nordstrom Rack: '+(d.rack||'-'),
+    'Link magazin: '+link,
     'Detalii: '+(d.notes||'-')
   ];
   if(!number){
@@ -45,3 +46,12 @@ if (form) form.addEventListener('submit', (e)=>{
   }
   window.location.href = 'https://wa.me/'+number+'?text='+encodeURIComponent(lines.join('\n'));
 });
+
+if (number) {
+  document.querySelectorAll('a.btn-wa, a.wa-float').forEach((a) => {
+    const href = a.getAttribute('href') || '';
+    if (href === '#cerere' || a.classList.contains('wa-float')) {
+      a.setAttribute('href', 'https://wa.me/' + number);
+    }
+  });
+}
